@@ -31,4 +31,7 @@ for i in range(n):
         callist.append((b[0]+b[1])/2)
     if (a[1]+c[1])%2 == 0:
         callist.append((a[1]+c[1])/2)
-    print('Case #'+str(i+1)+': '+str(len(callist)-len(set(callist))+1+maxpos))
+    if len(callist) != 0:
+        print('Case #'+str(i+1)+': '+str(len(callist)-len(set(callist))+1+maxpos))
+    else:
+        print('Case #'+str(i+1)+': '+str(maxpos))
