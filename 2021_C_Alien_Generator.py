@@ -1,15 +1,23 @@
 testcase = int(input())
-for i in range(testcase):
+for num in range(testcase):
     n = int(input())
+    # find max n
+    if n==1 or n==2:
+        print('Case #'+str(num+1)+': 1')
+        continue
+    maxn=0 
+    sumn =0
+    while sumn < n:
+        sumn+=maxn
+        maxn+=1
+
+    #print(maxn)
     count = 0
-    for _ in range(1,n+1):
-        sum_ = 0
-        for j in range(_,n+1):
-            sum_+=j
-            if sum_ == n:
-               # print(_,sum_)
-                count+=1
-            elif sum_ > n:
-                break
-    print('Case #'+str(i+1)+': '+str(count))
-        
+    for i in range(1,n):
+        isint = (2*n-i*(i-1))
+        if isint % (2*i)==0 and i<maxn:
+            #print(isint/(2*i),i)
+            count+=1
+        if i>maxn:
+            break
+    print('Case #'+str(num+1)+': '+str(count))
