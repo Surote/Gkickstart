@@ -1,5 +1,8 @@
 n,m=map(int,input().split())
 frdict={}
+if m==0:
+    for i in range(1,n+1):
+        frdict[i]=[]
 for fr in range(m):
     u,v=map(int,input().split())
     if u not in frdict:
@@ -20,10 +23,13 @@ for qu in range(q):
     if qn == '3':
         for kill in list(frtempdict):
             #print(kill)
-            if kill in list(frtempdict):
-                for kill2 in frtempdict[kill]:
-                    if kill2 < kill:
-                        frtempdict.pop(kill2,None)
+            #if kill in list(frtempdict):
+            if len(frtempdict[kill])!=0 and min(frtempdict[kill]) > kill:
+                frtempdict.pop(kill,None)
+            print(frtempdict)
+            #for kill2 in frtempdict[kill]:
+            #    if kill2 < kill:
+            #        frtempdict.pop(kill2,None)
         print(len(frtempdict))
         frtempdict=frdict.copy()
                 
